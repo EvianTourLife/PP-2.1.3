@@ -1,5 +1,6 @@
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
 
 public class App {
     public static void main(String[] args) {
@@ -8,5 +9,12 @@ public class App {
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
         System.out.println(bean.getMessage());
+
+        ApplicationContext applicationContext1 =
+                new AnnotationConfigApplicationContext(AppConfig.class);
+        Cat bean1 =
+                (Cat) applicationContext1.getBean("cat");
+        System.out.println(bean1.getMessage());
+
     }
 }
